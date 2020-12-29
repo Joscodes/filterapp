@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            background: black;
+            padding: 5px;
+            box-sizing: border-box;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        li{
+            margin: 5px;
+            padding: 5px;
+            background:rebeccapurple;
+            border: 1px solid white;
+            text-transform: capitalize;
+            color: red;
+        }
+        #inputedtext{
+            display: block;
+            width: 300px;
+            padding: 5px;
+            box-sizing: border-box;
+
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        .container{
+            background: gray;
+            margin-left: auto;
+            margin-right: auto;
+            width: 300px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <h3 style="color: white;text-align: center;">SEARCH FILTER</h3>
+    <input type="text" id="inputedtext" placeholder="search" onkeyup="search()">
+    <ul id="list_to_filter">
+        <li>rupesh</li>
+        <li>joston</li>
+        <li>preston</li>
+        <li>ramya</li>
+        <li>yashvi</li>
+        <li>gautami</li>
+        <li>sai</li>
+        <li>sairaj</li>
+        <li>ravi</li>
+    </ul>
+   </div>
+<script>
+ const search = () =>{
+     let inputedtext=document.getElementById('inputedtext').value.toLowerCase();
+     let ul =document.getElementById('list_to_filter');
+     let li =document.getElementsByTagName('li');
+     for(let i=0;i<=li.length;i++){
+         let filteredlist=li[i].textContent.toLowerCase();
+//         console.log(filteredlist);
+         if(filteredlist.indexOf(inputedtext)>-1){
+             li[i].style.display='';
+         }
+         else{
+             li[i].style.display='none';
+         }
+     }
+ }    
+</script>
+</body>
+</html>
